@@ -82,7 +82,7 @@ async def join(_, message):
         return
     group_calls.client = app
     await group_calls.start(message.chat.id)
-    await message.reply_text('Succsessfully joined!')
+    await message.reply_text('𝘾𝙤𝙣𝙜𝙧𝙖𝙩𝙪𝙡𝙖𝙩𝙞𝙤𝙣𝙨 🥳 𝙈𝙐𝙎𝙄𝘾 𝘼𝙎𝙎𝙄𝙎𝙏𝘼𝙉𝙏 𝙅𝙊𝙄𝙉𝙀𝘿 𝙏𝙃𝙄𝙎 𝙂𝙍𝙊𝙐𝙋✨✨🎸')
 
 @app.on_message(filters.text & cmd_filter('mute'))
 async def mute(_, message):
@@ -145,7 +145,7 @@ async def queues(_, message):
         await message.reply_text(usage)
         return
     if len(queue) > 0:
-        await message.reply_text("__**Added To Queue.__**")
+        await message.reply_text("**𝙎𝙊𝙉𝙂 𝙋𝙊𝙎𝙄𝙏𝙄𝙊𝙉 😁** ** {}**")
         queue.append({"service": service, "song": song_name,
                       "requested_by": requested_by})
         await play()
@@ -228,7 +228,7 @@ async def deezer(requested_by, query):
         artist = songs[0].artist
         url = songs[0].url
     except Exception as e:
-        await m.edit("__**Found No Song Matching Your Query.**__")
+        await m.edit("**🌸 (･ัω･ั)𝙎𝙥𝙚𝙡𝙡𝙞𝙣𝙜 𝙥𝙧𝙤𝙗𝙡𝙚𝙢 𝙝𝙖𝙞 𝙖𝙖𝙥 𝙘𝙝𝙚𝙘𝙠 𝙠𝙧 𝙡𝙤 𝙚𝙠 𝙗𝙖𝙖𝙧😚.**")
         playing = False
         print(str(e))
         return
@@ -254,7 +254,7 @@ async def deezer(requested_by, query):
 
 async def jiosaavn(requested_by, query):
     global playing
-    m = await send(f"__**Searching for {query} on JioSaavn.**__")
+    m = await send(f"**🔎 𝙁𝙄𝙉𝘿𝙄𝙉𝙂 𝙏𝙃𝙀 𝙎𝙊𝙉𝙂 🎸🎶 𝙋𝙇𝙀𝘼𝙎𝙀 𝙒𝘼𝙄𝙏..... 𝙆𝙍 𝙏𝙃𝙊𝘿𝘼𝙎𝘼 😒**")
     try:
         songs = await arq.saavn(query)
         sname = songs[0].song
@@ -264,7 +264,7 @@ async def jiosaavn(requested_by, query):
         sduration = songs[0].duration
         sduration_converted = convert_seconds(int(sduration))
     except Exception as e:
-        await m.edit("__**Found No Song Matching Your Query.**__")
+        await m.edit("**🌸 (･ัω･ั)𝙎𝙥𝙚𝙡𝙡𝙞𝙣𝙜 𝙥𝙧𝙤𝙗𝙡𝙚𝙢 𝙝𝙖𝙞 𝙖𝙖𝙥 𝙘𝙝𝙚𝙘𝙠 𝙠𝙧 𝙡𝙤 𝙚𝙠 𝙗𝙖𝙖𝙧😚.**")
         print(str(e))
         playing = False
         return
@@ -293,7 +293,7 @@ async def jiosaavn(requested_by, query):
 async def ytplay(requested_by, query):
     global playing
     ydl_opts = {"format": "bestaudio"}
-    m = await send(f"__**Searching for {query} on YouTube.**__")
+    m = await send(f"🔎 𝙁𝙄𝙉𝘿𝙄𝙉𝙂 𝙏𝙃𝙀 𝙎𝙊𝙉𝙂 🎸🎶 𝙋𝙇𝙀𝘼𝙎𝙀 𝙒𝘼𝙄𝙏..... 𝙆𝙍 𝙏𝙃𝙊𝘿𝘼𝙎𝘼 😒")
     try:
         results = await arq.youtube(query, 1)
         link = f"https://youtube.com{results[0].url_suffix}"
@@ -306,7 +306,7 @@ async def ytplay(requested_by, query):
             playing = False
             return
     except Exception as e:
-        await m.edit("__**Found No Song Matching Your Query.**__")
+        await m.edit("**🌸 (･ัω･ั)𝙎𝙥𝙚𝙡𝙡𝙞𝙣𝙜 𝙥𝙧𝙤𝙗𝙡𝙚𝙢 𝙝𝙖𝙞 𝙖𝙖𝙥 𝙘𝙝𝙚𝙘𝙠 𝙠𝙧 𝙡𝙤 𝙚𝙠 𝙗𝙖𝙖𝙧😚.**")
         playing = False
         print(str(e))
         return
